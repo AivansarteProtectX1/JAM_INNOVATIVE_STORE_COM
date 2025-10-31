@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jam Innovative Store</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('background.jpg') no-repeat center center/cover;
+      color: #333;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(3px);
+      z-index: -1;
+    }
+
+    header {
+      background: linear-gradient(90deg, #0066ff, #00b4ff);
+      color: white;
+      text-align: center;
+      padding: 40px 20px 70px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: -40px;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: white;
+      transform: rotate(-2deg);
+      z-index: 0;
+    }
+
+    .logo-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      background: linear-gradient(135deg, #00b4ff, #0072ff);
+      box-shadow: 0 0 25px rgba(0,114,255,0.6);
+      animation: glowPulse 3s infinite ease-in-out;
+      margin-bottom: 10px;
+      z-index: 2;
+      position: relative;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(0,114,255,0.5); }
+      50% { box-shadow: 0 0 35px rgba(0,114,255,0.9); }
+    }
+
+    .logo-text {
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .subtext {
+      font-size: 16px;
+      color: #d6e4ff;
+      margin-bottom: 10px;
+    }
+
+    .fb-name {
+      font-size: 15px;
+      color: #fff;
+      font-weight: 500;
+      margin-top: 5px;
+    }
+
+    .fb-name a {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .fb-name a:hover {
+      text-decoration: underline;
+      color: #fff;
+    }
+
+    .contact {
+      font-size: 15px;
+      margin-top: 10px;
+    }
+
+    .contact a {
+      color: #ffd700;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+      color: white;
+    }
+
+    .fb-icon {
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+      margin-right: 6px;
+      transition: transform 0.3s;
+    }
+
+    .fb-icon:hover {
+      transform: scale(1.2);
+    }
+
+    main {
+      padding: 60px 25px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 30px;
+      color: #003d82;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #0066ff, #00b4ff);
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      justify-items: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: all 0.4s ease;
+    }
+
+    .card:hover img {
+      filter: brightness(1.1);
+    }
+
+    .info {
+      padding: 18px;
+    }
+
+    .info h3 {
+      font-size: 18px;
+      color: #004080;
+      margin-bottom: 8px;
+    }
+
+    .info p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    footer {
+      background: rgba(0,61,130,0.95);
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+      border-top: 3px solid #00b4ff;
+      margin-top: 50px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    footer a {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* 🌈 Rainbow Watermark */
+    .watermark {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+      background-size: 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbowMove 4s linear infinite;
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    @keyframes rainbowMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="2736y27828.jpeg" alt="Jam Innovative Logo" class="logo-img">
+    <div class="logo-text">Jam Innovative</div>
+    <div class="subtext">Office and School Supplies Trading</div>
+    <div class="fb-name">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" class="fb-icon" alt="Facebook">
+      <a href="https://www.facebook.com/jam.innovative" target="_blank">Jam Innovative Official</a>
+    </div>
+    <div class="contact">
+      📞 <a href="tel:0926-780-8334">0926-780-8334</a>
+    </div>
+  </header>
+
+  <main>
+    <h2>Our Products</h2>
+    <div class="products">
+      <div class="card">
+        <img src="images.jpeg" alt="Bond Paper A4">
+        <div class="info">
+          <h3>Bond Paper A4 (80gsm)</h3>
+          <p>High-quality white printing paper for office and school use.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="download.webp" alt="Ballpen">
+        <div class="info">
+          <h3>Ballpen (Blue) - Box of 12</h3>
+          <p>Reliable smooth writing pens ideal for everyday use.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images (3).jpeg" alt="Notebook">
+        <div class="info">
+          <h3>Ruled Notebook (50 pages)</h3>
+          <p>Durable and stylish notebooks perfect for students.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="download.jpeg" alt="Highlighter">
+        <div class="info">
+          <h3>Highlighter Set (4 colors)</h3>
+          <p>Vibrant colors that make highlighting fun and easy.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="44f253d6-bf4f-45df-8a50-80af1491d703.jpeg" alt="Printer">
+        <div class="info">
+          <h3>Printer (All-in-One)</h3>
+          <p>Efficient printing, scanning, and copying with high-quality output.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>📘 Facebook: <a href="https://www.facebook.com/jam.innovative" target="_blank">Jam Innovative Official</a></p>
+    <p>📞 Contact: 0926-780-8334 | 🕕 Open: 6:00 AM – 7:00 PM</p>
+    <p>© 2025 Jam Innovative Office and School Supplies Trading</p>
+  </footer>
+
+  <div class="watermark">MADE BY:AIVANSARTE.PROTECTX1</div>
+
+</body>
+</html>
